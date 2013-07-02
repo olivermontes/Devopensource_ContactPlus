@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Devopensource_ContactPlus>
+            <version>0.1.0</version>
+        </Devopensource_ContactPlus>
+    </modules>
+    <frontend>
+        <routers>
+            <contactsplus>
+                <use>standard</use>
+                <args>
+                    <module>Devopensource_ContactPlus</module>
+                    <frontName>contactsplus</frontName>
+                </args>
+            </contactsplus>
+            <contacts>
+                <args>
+                    <modules>
+                        <Devopensource_ContactPlus before="Mage_Contacts">Devopensource_ContactPlus</Devopensource_ContactPlus>
+                    </modules>
+                </args>
+            </contacts> 
+        </routers>
+        <layout>
+            <updates>
+                <contactsplus>
+                    <file>contactsplus.xml</file>
+                </contactsplus>
+            </updates>
+        </layout>        
+    </frontend>
+    <global>
+        <helpers>
+            <contactsplus>
+                <class>Devopensource_ContactPlus_Helper</class>
+            </contactsplus>
+        </helpers>
+
+        <template>
+            <email>
+                <contact_plus translate="label" module="email">
+                    <label>Contact Plus</label>
+                    <file>contact_plus.html</file>
+                    <type>html</type>
+                </contact_plus>
+            </email>
+        </template>
+
+    </global>
+
+    <default>
+        <contactsplus>
+            <contactsplus>
+                <enabled>1</enabled>
+            </contactsplus>
+            <email>
+                <recipient_email><![CDATA[hello@example.com]]></recipient_email>
+                <sender_email_identity>custom2</sender_email_identity>
+                <email_template>contact_plus</email_template>
+            </email>
+        </contactsplus>
+    </default>
+
+</config>
